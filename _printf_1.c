@@ -13,7 +13,8 @@
 
 int _printf(const char *format, ...);
 
-int main(void) /* just for testing */
+int main(void) 
+/* just for testing */
 
 {
 	_printf("String:[%s]\n", "I am a string !");
@@ -23,31 +24,42 @@ int main(void) /* just for testing */
 int _printf(const char *format, ...)
 
 {
-	int length = 0; /* counts the number of printed characters */
-	va_list args; /* list of arguments for the _printf variadic function */
-	va_start(args, format); /* starting position */
+	int length = 0; 
+	/* counts the number of printed characters */
+	va_list args; 
+	/* list of arguments for the _printf variadic function */
+	va_start(args, format); 
+	/* starting position */
 
-	for (int index = 0; format[index] != '\0'; index++) /* going through the format array */
+	for (int index = 0; format[index] != '\0'; index++) 
+	/* going through the format array */
 
 	{
-		if (format[index] == '%') /* if we catch '%' */
+		if (format[index] == '%') 
+		/* if we catch '%' */
 
 		{
-			index++; /* keep moving to the next character */
+			index++; 
+			/* keep moving to the next character */
 
-			if (format[index] == 's') /* if we encounter 's' as in '%s' */
+			if (format[index] == 's') 
+			/* if we encounter 's' as in '%s' */
 
 			{
 				char *string; 
-				string = va_arg(args, char * ); /* initializing string arg in list of args */
+				string = va_arg(args, char * ); 
+				/* initializing string arg in list of args */
 				int j;
 
-				for (j = 0; string[j] != '\0'; j++) /* now moving along the characters in string */
+				for (j = 0; string[j] != '\0'; j++) 
+				/* now moving along the characters in string */
 
 				{
-					putchar(string[j]); /* printing each character */
+					putchar(string[j]); 
+					/* printing each character */
 
-					length++; /* counting printed out characters */
+					length++; 
+					/* counting printed out characters */
 
 				}
 
@@ -55,12 +67,15 @@ int _printf(const char *format, ...)
 
 		}
 
-		else /* if no '%' encountered */
+		else 
+		/* if no '%' encountered */
 
 		{
-			putchar(format[index]); /* print the string thats there within " " */
+			putchar(format[index]); 
+			/* print the string thats there within " " */
 
-			length++; /* keep track of printed chars */
+			length++; 
+			/* keep track of printed chars */
 
 		}
 
