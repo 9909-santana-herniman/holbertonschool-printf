@@ -1,4 +1,2 @@
-Project: C - printf\n
-Team: Adam, Mat, Santana\n
-
-We are creating our own printf function.\n
+## Project: C - printf
+Our team: Adam, Mat, Santana are creating our own printf function.
