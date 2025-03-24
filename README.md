@@ -1,2 +1,2 @@
 ## Project: C - printf
-Our team: Adam, Mat, Santana are creating our own printf function.
+In this team project, Adam, Mat, and Santana are creating their own printf function.
