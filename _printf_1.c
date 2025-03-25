@@ -12,13 +12,13 @@
 
  int _printf(const char *format, ...);
 
-int main(void) 
-/* just for testing */
+ int main(void) 
+ /* just for testing */
 
 {
-	_printf("String:[%s]\n", "I am a string !");
+	/* _printf("String:[%s]\n", "I am a string !");
 	_printf("Character:[%c]\n", 'H');
-	_printf("Percent:[%%]\n");
+	_printf("Percent:[%%]\n");*/
 	return (0);
 }
 
