@@ -10,10 +10,10 @@
  * excluding '\0'
  */
 
-/* int _printf(const char *format, ...);
+ int _printf(const char *format, ...);
 
 int main(void) 
-/ just for testing /
+/* just for testing */
 
 {
 	_printf("String:[%s]\n", "I am a string !");
@@ -21,7 +21,7 @@ int main(void)
 	_printf("Percent:[%%]\n");
 	return (0);
 }
-*/
+
 int _printf(const char *format, ...)
 
 {
