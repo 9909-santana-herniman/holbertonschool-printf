@@ -31,3 +31,21 @@ int print_string(va_list args)
 	return (length);
 
 }
+
+/**
+ * print_char - prints character from the list
+ * of args
+ *
+ * Return: length
+ */
+
+int print_char(va_list args, int *length)
+
+{
+	putchar(va_arg(args, int);
+	
+	(*length)++;
+
+	return (length);
+
+}
