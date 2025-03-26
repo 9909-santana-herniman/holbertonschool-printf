@@ -1,6 +1,12 @@
 #include "main.h"
 
-void print_string(va_list args)
+/**
+ * print_string - prints string from list
+ *
+ * Return: number of characters printed
+ */
+
+int print_string(va_list args)
 
 {
 	char *string;

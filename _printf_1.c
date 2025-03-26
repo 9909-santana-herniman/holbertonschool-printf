@@ -72,7 +72,7 @@ i
 				print_string(args, &length);
 
 			else if (format[index + 1] == 'd' || format[index + 1] == 'i')
-				print_decimal(args, &length)
+				print_number(args, &length)
 			
 			else if (format[index + 1] == '%')
 
@@ -93,28 +93,6 @@ i
 
 			}
 
-			/* else if (format[index] == 's') */
-			/* if we encounter 's' as in '%s' */
-
-			{
-				char *string;
-				int j;
-				string = va_arg(args, char * ); 
-				/* initializing string arg in list of args */
-
-				for (j = 0; string[j] != '\0'; j++) 
-				/* now moving along the characters in string */
-
-				{
-					putchar(string[j]); 
-					/* printing each character */
-
-					length++; 
-					/* counting printed out characters */
-
-				}
-
-			}
 			else if (format[index] == 'c')
 
 			{
