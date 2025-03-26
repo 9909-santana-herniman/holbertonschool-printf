@@ -1,0 +1,38 @@
+_printf(3) - man page
+
+NAME:
+_printf - Custom made function of printf
+
+SYNOPSIS:
+#include "main.h"
+
+int _printf(const char *format, ...);
+
+DESCRIPTION:
+_printf prints formatted output to stdout based on the format string provided.
+The function processes normal characters as-is.
+When it encouters '%', it checks the next character to determine how to format the output.
+Important: This function is a simplified version of the printf function because it can only convert the specifiers c, s, d, i and %. Which means any other specifiers will be printed as characters or null (Unless further updates are made).
+
+
+Supported format specifiers:
+%c -> prints a character
+%s -> prints a string
+%d or %i -> prints an integer
+%% - > prints the % character
+
+RETURN VALUE:
+Returns the total number of characters printed, excluding the null terminator '\0'.
+
+EXAMPLES:
+_printf("Hello, %s!\n", "World");
+/* Output: Hello, World! */
+
+_printf("Character: %c, Number: %d\n", 'A', 123);
+/* Output: Character: A, Number: 123 */
+
+REFERENCE:
+3 printf
+
+AUTHORS:
+Adam, Mat, and Santana

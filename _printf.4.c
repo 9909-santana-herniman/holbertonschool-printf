@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdio.h>
+=======
+#include "main.h"
+
+>>>>>>> cbbbfeebab83fe5fea06eb489246d52417d5cb0c
 /**
  * print_number - Prints an integer recursively
  * @num: The integer to print
