@@ -6,26 +6,28 @@
  */
 void print_number(int num)
 {
-        char digit;
-
-        /* Handle negative numbers */
-        if (num < 0)
-        {
-                putchar('-');
-                n = -num;
-        }
-
-        /* Recursively print_number for all digits ex for last one */
-        if (num / 10)
-                print_number(n / 10);
-
-        /* Print the last digit */
-        putchar((num % 10) + '0')
+       	char digit;
+	
+	/* Handle negative numbers */
+	if (num < 0)
+	{
+		putchar('-');
+		n = -num;
+	}
+	
+	/* Recursively print_number for all digits ex for last one */
+	if (num / 10)
+	{
+		print_number(n / 10);
+	}
+	
+	/* Print the last digit */
+	putchar((num % 10) + '0')
 }
 
 /**
  * print_string - prints string from list
- *
+ * @args: input arguments
  * Return: number of characters printed
  */
 
@@ -58,7 +60,8 @@ int print_string(va_list args)
 /**
  * print_char - prints character from the list
  * of args
- *
+ * @args:
+ * @length: 
  * Return: length
  */
 
