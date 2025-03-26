@@ -1,6 +1,3 @@
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
