@@ -1,5 +1,4 @@
-#include <unistd.h>
-#include <stdarg.h>
+#include "main.h"
 
 /**
  * print_number - Prints an integer recursively
