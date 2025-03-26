@@ -3,61 +3,60 @@
 
 /**
  * print_number - Prints an integer recursively
- * @n: The integer to print
+ * @num: The integer to print
  */
-void print_number(int n)
+void print_number(int num)
 {
 	char digit;
 
 	/* Handle negative numbers */
-	if (n < 0)
+	if (num < 0)
 	{
-		write(1, "-", 1);
-		n = -n;
+		putchar('-');
+		n = -num;
 	}
 
-	/* Recursively print higher-order digits */
-	if (n / 10)
+	/* Recursively print_number for all digits ex for last one */
+	if (num / 10)
 		print_number(n / 10);
 
-	/* Convert last digit to ASCII and print */
-	digit = n % 10 + '0';
-	write(1, &digit, 1);
+	/* Print the last digit */
+	putchar((num % 10) + '0')
 }
 
 /**
- * custom_printf - Custom printf implementation for %d and %i specifiers
- * @format: Format string containing text and specifiers
+ * custom_printf - Custom printf implementation for %d and %i specs
+ * @format: Format string containing text and specs
  *
  * Return: Number of characters printed (excluding null byte)
  */
-int custom_printf(const char *format, ...)
+void custom_printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
-	const char *ptr;
+
 
 	va_start(args, format); /* Initialize variable arguments list */
 
-	/* Process each character in format string */
-	for (ptr = format; *ptr; ptr++)
+	/* Loop through each character in format string */
+	while (*fomat)
 	{
 		/* Check for format specifier */
-		if (*ptr == '%' && (*(ptr + 1) == 'd' || *(ptr + 1) == 'i'))
+		if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
 		{
 			int num = va_arg(args, int); /* Get next integer argument */
 
 			print_number(num);
-			ptr++; /* Skip specifier character */
+			format += 2; /* Skip specifier character */
 		}
 		else
 		{
-			/* Print regular characters */
-			write(1, ptr, 1);
+			/* Print non-specifier characters as-is */
+			putchar(*format);
+			format++;
 		}
-		count++;
+
 	}
 
 	va_end(args); /* Clean up variable arguments list */
-	return (count);
+
 }
