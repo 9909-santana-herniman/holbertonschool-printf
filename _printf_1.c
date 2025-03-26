@@ -93,12 +93,6 @@ i
 
 			}
 
-			else if (format[index] == 'c')
-
-			{
-				putchar(format[index]);
-				length++;
-			} 
 
 		}
 
