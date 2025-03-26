@@ -81,7 +81,7 @@ i
 				length++;
 			}
 
-			else if format[index + 1] == '\0')
+			else if (format[index + 1] == '\0')
 				continue;
 
 			else
@@ -93,7 +93,7 @@ i
 
 			}
 
-			/* else if (format[index] == 's') 
+			/* else if (format[index] == 's') */
 			/* if we encounter 's' as in '%s' */
 
 			{
