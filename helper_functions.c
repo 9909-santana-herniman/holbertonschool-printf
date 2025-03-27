@@ -72,7 +72,7 @@ int print_string(va_list args)
 int print_char(va_list args, int *length)
 
 {
-	putchar(va_arg(args, int);
+	putchar(va_arg(args, int));
 
 	(*length)++;
 
