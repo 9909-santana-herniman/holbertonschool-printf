@@ -48,25 +48,20 @@ int _printf(const char *format, ...)
 {
 	int length = 0;
 	int index = 0;	
-	/* counts the number of printed characters */
 	va_list args; 
-	/* list of arguments for the _printf variadic function */
 	va_start(args, format); 
-	/* starting position */
+	
 	if (!format)
 		exit(98);
 
 	for (index = 0; format[index] != '\0'; index++)
-	/* going through the format array */
 
 	{
 		if (format[index] == '%') 
 		/* if we catch '%' */
-i
 		{
 			if (format[index + 1] == 'c')
 				print_char(args, &length);
-			/* keep moving to the next character */
 
 			else if (format[index + 1] == 's')
 				print_string(args, &length);
@@ -75,7 +70,6 @@ i
 				print_number(args, &length)
 			
 			else if (format[index + 1] == '%')
-
 			{
 				putchar('%');
 				length++;
@@ -85,14 +79,11 @@ i
 				continue;
 
 			else
-
 			{
 				putchar('%');
 				putchar(format[index + 1]);
 				length += 2;
-
 			}
-
 
 		}
 
@@ -105,15 +96,12 @@ i
 
 			length++; 
 			/* keep track of printed chars */
-
 		}
 		
-		
-
 	}
-
+	if (length == 0)
+		return (-1);
 	va_end(args);
-
 	return (length);
 
 }
