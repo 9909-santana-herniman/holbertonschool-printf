@@ -11,7 +11,7 @@ int format_specifiers(char format, va_list args)
 	switch (format)
 	{
 	case 'c':
-		count += _putchar(va_arg(args, int));
+		count += print_char(va_arg(args, int));
 		break;
 	case 's':
 		count += print_string(va_arg(args, char *));
@@ -21,11 +21,11 @@ int format_specifiers(char format, va_list args)
 		count += print_number(va_arg(args, int));
 	break;
 	case '%':
-		count += _putchar('%');
+		count += putchar('%');
 		break;
 	default:
-		count += _putchar('%');
-		count += _putchar(format);
+		count += putchar('%');
+		count += putchar(format);
 		break;
 	}
 	return (count);
