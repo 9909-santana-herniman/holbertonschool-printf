@@ -24,7 +24,7 @@ void print_number(int num)
 	}
 
 	/* Print the last digit */
-	putchar((num % 10) + '0')
+	putchar((num % 10) + '0');
 }
 
 /**
