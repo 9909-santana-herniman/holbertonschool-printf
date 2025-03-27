@@ -12,12 +12,12 @@
 
 
 int _printf(const char *format, ...);
-
+/*
 int main(void)
 
- /* just for testing */
+  just for testing
 
-/* {
+ {
 	_printf("String:[%s]\n", "I am a string !");
 	_printf("Character:[%c]\n", 'H');
 	_printf("Percent:[%%]\n");
@@ -27,8 +27,8 @@ int main(void)
 	_printf("Let's see if the cast is correclty done: %c. Did it work?\n", 48);
 	_printf("%s", "This sentence is rerieved from va_args!\n");
 	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
-	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); */
-	/* _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	 _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 	_printf("%%\n");
 	_printf("Should print a single percent sign: %%\n");
 	_printf("%s%c%c%c%s%%%s%c", "Loading ",'.', '.', '.', " 99", " Please wait", '\n');
@@ -39,10 +39,11 @@ int main(void)
 	_printf("%c", '\0');
 	_printf("%");
 	_printf("%!\n");
-	_printf("%K\n"); */
+	_printf("%K\n");
 
 	return (0);
 }
+*/
 
 int _printf(const char *format, ...)
 
