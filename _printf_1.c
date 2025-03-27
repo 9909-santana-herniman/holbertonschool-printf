@@ -10,13 +10,15 @@
  * excluding '\0'
  */
 
- int _printf(const char *format, ...);
+int format_specifiers(char format, va_list args);
 
- int main(void)
+int _printf(const char *format, ...);
+
+int main(void)
 
  /* just for testing */
 
-{
+/* {
 	_printf("String:[%s]\n", "I am a string !");
 	_printf("Character:[%c]\n", 'H');
 	_printf("Percent:[%%]\n");
@@ -26,19 +28,19 @@
 	_printf("Let's see if the cast is correclty done: %c. Did it work?\n", 48);
 	_printf("%s", "This sentence is rerieved from va_args!\n");
 	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
-	/* _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); */
-	/* _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n'); */
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); */
+	/* _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 	_printf("%%\n");
 	_printf("Should print a single percent sign: %%\n");
-	/* _printf("%s%c%c%c%s%%%s%c", "Loading ",'.', '.', '.', " 99", " Please wait", '\n'); */
+	_printf("%s%c%c%c%s%%%s%c", "Loading ",'.', '.', '.', " 99", " Please wait", '\n');
 	_printf("css%ccs%scscscs", 'T', "Test");
-	/* _printf(str); */
-	/* _printf("man gcc:\n%s", str); */
+	_printf(str);
+	_printf("man gcc:\n%s", str);
 	_printf(NULL);
 	_printf("%c", '\0');
 	_printf("%");
 	_printf("%!\n");
-	_printf("%K\n");
+	_printf("%K\n"); */
 
 	return (0);
 }
@@ -53,12 +55,13 @@ int _printf(const char *format, ...)
 	
 	if (!format)
 		exit(98);
-
+		return (-1);
 	for (index = 0; format[index] != '\0'; index++)
+		
+		int format_specifiers(char format, va_list args)
 
-	{
+/*	{
 		if (format[index] == '%') 
-		/* if we catch '%' */
 		{
 			if (format[index + 1] == 'c')
 				print_char(args, &length);
@@ -88,15 +91,12 @@ int _printf(const char *format, ...)
 		}
 
 		else 
-		/* if no '%' encountered */
 
 		{
 			putchar(format[index]); 
-			/* print the string thats there within " " */
 
 			length++; 
-			/* keep track of printed chars */
-		}
+		} */
 		
 	}
 	if (length == 0)
