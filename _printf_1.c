@@ -10,7 +10,6 @@
  * excluding '\0'
  */
 
-int format_specifiers(char format, va_list args);
 
 int _printf(const char *format, ...);
 
@@ -58,9 +57,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	for (index = 0; format[index] != '\0'; index++)
 		
-		int format_specifiers(char format, va_list args)
-
-/*	{
+	{
 		if (format[index] == '%') 
 		{
 			if (format[index + 1] == 'c')
@@ -96,7 +93,7 @@ int _printf(const char *format, ...)
 			putchar(format[index]); 
 
 			length++; 
-		} */
+		} 
 		
 	}
 	if (length == 0)
