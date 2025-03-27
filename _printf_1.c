@@ -56,8 +56,10 @@ int _printf(const char *format, ...)
 	if (!format)
 		exit(98);
 		return (-1);
+
+
 	for (index = 0; format[index] != '\0'; index++)
-		
+/*		
 	{
 		if (format[index] == '%') 
 		{
@@ -88,7 +90,7 @@ int _printf(const char *format, ...)
 
 		}
 
-		else 
+*/	 
 
 		{
 			putchar(format[index]); 
