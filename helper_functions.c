@@ -8,6 +8,7 @@
 void print_number(int num)
 {
 	char digit;
+	unsigned int n;
 
 	/* Handle negative numbers */
 	if (num < 0)
