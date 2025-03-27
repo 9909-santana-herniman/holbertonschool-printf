@@ -51,57 +51,78 @@ int _printf(const char *format, ...)
 	int length = 0;
 	int index = 0;	
 	va_list args; 
-	va_start(args, format); 
 	
 	if (!format)
-		exit(98);
 		return (-1);
-
-
+	
+	va_start(args, format);
 	for (index = 0; format[index] != '\0'; index++)
-/*		
+		
 	{
 		if (format[index] == '%') 
 		{
-			if (format[index + 1] == 'c')
-				print_char(args, &length);
+			if (format[index + 1] == '\0')
+				return (-1);
 
-			else if (format[index + 1] == 's')
-				print_string(args, &length);
-
-			else if (format[index + 1] == 'd' || format[index + 1] == 'i')
-				print_number(args, &length)
-			
 			else if (format[index + 1] == '%')
 			{
 				putchar('%');
 				length++;
+				index++;
 			}
 
-			else if (format[index + 1] == '\0')
-				continue;
-
+			else if (specif_func(format[index + 1]) != NULL)
+			{
+				length += (specif_func(format[index + 1])(args);
+				index++;
+			}
 			else
 			{
-				putchar('%');
-				putchar(format[index + 1]);
-				length += 2;
+				putchar(format[index]);
+				length++;
 			}
 
 		}
-
-*/	 
+		else
 
 		{
 			putchar(format[index]); 
-
 			length++; 
 		} 
 		
 	}
-	if (length == 0)
-		return (-1);
 	va_end(args);
 	return (length);
 
 }
+
+/**
+ * specif_func - sorting specifiers and functions
+ * @ch: character
+ *
+ * Return: 0
+ */
+
+int (*specif_func(const char ch))(va_list)
+{
+	op_t ops[] = {
+		{'c', print_char},
+		{'s', print_string},
+		{'d', print_number},
+		{'i', print_number},
+		{'\0', NULL}
+	};
+
+	int j;
+
+	for (j = 0; ops[j].ptr != '\0'; j++)
+	{
+		if (ops[j].ptr == ch)
+		{
+			return (ops[j].f);
+		}
+	}
+	return (0);
+}
+
+
