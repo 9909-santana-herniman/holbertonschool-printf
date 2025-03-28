@@ -36,15 +36,13 @@ void print_number(int num)
 int print_string(va_list args)
 
 {
-	char *string;
 	int j;
-	int length = 0;
-
-	string = va_arg(args, char *);
+	char *string = va_arg(args, char *);
 	/* initializing string arg in list of args */
 	if (!string)
 	{
-		string = ("null");
+		write(1, "(null)", 6);
+		return (6);
 	}
 
 	for (j = 0; string[j] != '\0'; j++)
@@ -54,11 +52,9 @@ int print_string(va_list args)
 		putchar(string[j]);
 		/* printing each character */
 
-		length++;
-
 	}
 
-	return (length);
+	return (j);
 }
 
 /**
@@ -69,13 +65,24 @@ int print_string(va_list args)
  * Return: length
  */
 
-int print_char(va_list args, int *length)
+int print_char(va_list args)
 
 {
 	putchar(va_arg(args, int));
 
-	(*length)++;
-
-	return (length);
+	return (1);
 
 }
+
+/**
+ * print_perc - prints "%"
+ * @args: arguments
+ * Return: char "%"
+ */
+
+int print_perc(va_list args)
+{
+	(void)args;
+	return (write(1, "%", 1));
+}
+

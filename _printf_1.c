@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
  * _printf - small version of printf
@@ -12,10 +14,10 @@
 
 
 int _printf(const char *format, ...);
-/*
-int main(void)
 
-  just for testing
+int main(void)
+{
+/*  just for testing
 
  {
 	_printf("String:[%s]\n", "I am a string !");
@@ -39,60 +41,57 @@ int main(void)
 	_printf("%c", '\0');
 	_printf("%");
 	_printf("%!\n");
-	_printf("%K\n");
+	_printf("%K\n"); */
 
 	return (0);
 }
-*/
 
 int _printf(const char *format, ...)
 
 {
-	int length = 0;
-	int index = 0;	
+	int len = 0;
+	int i = 0;	
 	va_list args; 
-	
+	int (*f)(va_list);
+
+	va_start(args, format);
 	if (!format)
 		return (-1);
 	
-	va_start(args, format);
-	for (index = 0; format[index] != '\0'; index++)
-		
+	while (format[i])
 	{
-		if (format[index] == '%') 
+		if (format[i] == '%') 
 		{
-			if (format[index + 1] == '\0')
-				return (-1);
-
-			else if (format[index + 1] == '%')
+			if (format[i + 1])
 			{
-				putchar('%');
-				length++;
-				index++;
-			}
 
-			else if (specif_func(format[index + 1]) != NULL)
-			{
-				length += (specif_func(format[index + 1])(args);
-				index++;
-			}
-			else
-			{
-				putchar(format[index]);
-				length++;
-			}
+				if (format[i + 1] != 'c' && format[i + 1] != 's'
+				&& format[i + 1] != '%' && format[i + 1] != 'd'
+				&& format[i + 1] != 'i')
+				{
+					len += putchar(format[i]);
+					len += putchar(format[i + 1]);
+					i++;
 
+				}
+				else
+				{
+					f = specif_func(&format[i + 1]);
+					len += f(args);
+					i++;
+				}
+			}
 		}
 		else
-
 		{
-			putchar(format[index]); 
-			length++; 
-		} 
+			putchar(format[i]);
+			len++;
+		}
+		i++;
 		
 	}
 	va_end(args);
-	return (length);
+	return (len);
 
 }
 
@@ -103,26 +102,26 @@ int _printf(const char *format, ...)
  * Return: 0
  */
 
-int (*specif_func(const char ch))(va_list)
+int (*specif_func(const char *format))(va_list)
 {
+	int i;
 	op_t ops[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'d', print_number},
-		{'i', print_number},
-		{'\0', NULL}
+		{"c", print_char},
+		{"s", print_string},
+		{"d", print_number},
+		{"i", print_number},
+		{"%", print_perc},
+		{NULL, NULL}
 	};
 
-	int j;
-
-	for (j = 0; ops[j].ptr != '\0'; j++)
+	for (i = 0; ops[i].ptr; i++)
 	{
-		if (ops[j].ptr == ch)
+		if (*format == *(ops[i].ptr))
 		{
-			return (ops[j].f);
+			return (ops[i].f);
 		}
 	}
-	return (0);
+	return (NULL);
 }
 
 
