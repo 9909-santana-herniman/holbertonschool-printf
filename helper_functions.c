@@ -50,7 +50,7 @@ int print_string(char *str)
 		str = "(null)";
 	}
 
-	whlie (*str) /* Iterate through each character in the string */
+	while (*str) /* Iterate through each character in the string */
 	{
 		count += putchar(*str); /* Print character */
 		str++; /* Move to next character */
@@ -64,7 +64,7 @@ int print_string(char *str)
  * Return: 1 since char is printed.
  */
 
-int print_char(c)
+char print_char(c)
 
 {
 	/* Uses _putchar to print */
