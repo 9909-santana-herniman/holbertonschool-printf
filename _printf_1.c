@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 			if (*format == 'c') /* If specifier 'c' */
 			{
 				/* print char */
-				len += print_char(va_arg(args, int));
+				len += _print_char(va_arg(args, int));
 			}
 			else if (*format == 's') /* If specifier 's'*/
 			{
