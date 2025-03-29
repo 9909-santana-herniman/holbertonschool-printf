@@ -9,8 +9,8 @@
 int print_number(va_list args)
 {
 	int count = 0;
-	unsigned int num; /* Holds the absolute value of num */
-	int n = va_arg(args, int);
+	/* Extract number from the va_list */
+	unsigned int num = va_arg(args, unsigned int);
 
 	/* Handle negative numbers */
 	if (n < 0)
@@ -25,11 +25,13 @@ int print_number(va_list args)
 	/* Recursively process the digits  */
 	if (num / 10)
 	{
-		count += print_number(num / 10);
+		/* Recurse with va_list */
+		count += print_number(args);
 	}
 
 	/* Print the last digit */
-	count =+ _putchar((num % 10) + '0');
+	_putchar((num % 10) + '0');
+	count++; /* Increment count */
 
 	return (count);
 }
