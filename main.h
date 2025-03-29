@@ -26,6 +26,6 @@ typedef struct specifier
 {
 	char specifier;
 	int (*f)(va_list);
-} specifier_link;
+}specifier_link;
 
 #endif
