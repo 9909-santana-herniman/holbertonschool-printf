@@ -6,7 +6,7 @@
  * Return: Number of characters printed.
  */
 
-int  print_number(va_list args)
+int  print_number(va_list, args)
 {
 	int count = 0;
 	unsigned int num; /* Holds the absolute value of num */
