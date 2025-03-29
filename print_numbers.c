@@ -6,8 +6,6 @@
  * Return: Number of characters printed.
  */
 
-int print_number_helper(unsigned int num);
-
 int print_number(va_list args)
 {
         int count = 0;

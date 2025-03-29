@@ -5,16 +5,15 @@
 #include <stdarg.h> /* for va_list and macros */
 #include <unistd.h> /* for write function */
 #include <stdlib.h>
-#include <stddef.h>
 
 /* Functions prototypes */
 int _printf(const char *format, ...); /* substitue printf function */
 
-int print_char(va_list args);
-int print_string(va_list args);
-int print_percent(va_list args);
-int print_number(va_list args);
-int print_number_helper(unsigned int num);
+int print_number(int n);
+int print_string(char *str);
+
+int format_spec(char format, va_list args);
+
 int _putchar(char c);
 
 #endif

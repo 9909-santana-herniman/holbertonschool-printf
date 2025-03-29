@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
  * _printf - small version of printf
@@ -12,9 +13,9 @@
 int _printf(const char *format, ...)
 
 {
-	int len = 0; /* Keep track of printed characters */	
+	int len = 0; /* Keep track of printed characters */
 	va_list args; /* List of arguments */
-       int i = 0;	
+	int i = 0;	
 
 	if (!format) /* Check for NULL format string */
 		return (-1);
