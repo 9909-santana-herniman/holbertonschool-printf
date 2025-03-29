@@ -64,7 +64,7 @@ int print_string(char *str)
  * Return: 1 since char is printed.
  */
 
-char print_char(c)
+int print_char(c)
 
 {
 	/* Uses _putchar to print */
