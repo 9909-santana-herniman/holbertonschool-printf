@@ -23,7 +23,7 @@ int format_specifiers(const char *format, va_list args)
 			/* Search for matching specifier */
 			while (specifiers[j].form_spec)
 			{
-				if (format[i] == specifiers[j].form_spec);
+				if (format[i] == specifiers[j].form_spec)
 				{
 					count += specifiers[j].f(args);
 					break;
