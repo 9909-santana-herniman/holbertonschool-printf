@@ -11,53 +11,37 @@
  */
 
 int _printf(const char *format, ...)
-
 {
 	int len = 0; /* Keep track of printed characters */
 	va_list args; /* List of arguments */
 	int i = 0;	
 
 	if (!format) /* Check for NULL format string */
+	{
 		return (-1);
+	}
 
 	va_start(args, format); /* Start processing arguments */
 	
 	/* Loop through each character in the format string */
-	while (format[i] != '\0')
+	while (format[i])
 	{
 		/* If format specifier found */
-		if (format[i] == '%' && format[i +1] != '\0')
+		if (format[i] == '%')
 		{
-			i++; /* Skip '%' */
-			switch (format[i]) /* Match the next character */
+			if (format[i + 1] == '\0')
 			{
-				case 'c':
-					len += print_char(args);
-					break;
-				case 's':
-					len += print_string(args);
-					break;
-				case 'd':
-				case 'i':
-					len += print_number(args);
-					break;
-				case '%':
-					len += _putchar('%');
-					break;
-				default:
-					len += _putchar('%');
-					len += _putchar(format[i]);
-					break;
+				return (-1);
 			}
+			len += format_spec(format[i++], args);
 		}
 		else
 		{
-			len =+ _putchar(format[i]);
+			len += _putchar(format[i], args);
 		}
 	i++;
 	}
 
 	va_end(args);
-
 	return (len);
 }
