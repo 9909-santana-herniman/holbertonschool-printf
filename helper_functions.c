@@ -12,9 +12,9 @@ int  print_number(int n)
 	unsigned int num; /* Holds the absolute value of num */
 
 	/* Handle negative numbers */
-	if (num < 0)
+	if (n < 0)
 	{
-		count += _putchar('-');
+		count += putchar('-');
 		num = -n;
 	}
 	else
@@ -28,7 +28,7 @@ int  print_number(int n)
 	}
 
 	/* Print the last digit */
-	count =+ _putchar((num % 10) + '0');
+	count =+ putchar((num % 10) + '0');
 
 	return (count);
 }
@@ -52,7 +52,7 @@ int print_string(char *str)
 
 	whlie (*str) /* Iterate through each character in the string */
 	{
-		count += _putchar(*str); /* Print character */
+		count += putchar(*str); /* Print character */
 		str++; /* Move to next character */
 	}
 	return (count);
@@ -68,6 +68,6 @@ int print_char(c)
 
 {
 	/* Uses _putchar to print */
-	return _putchar(c);
+	return putchar(c);
 
 }
