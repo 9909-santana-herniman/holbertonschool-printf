@@ -10,6 +10,6 @@
 int _printf(const char *format, ...);
 int print_number(int n);
 int print_string(char *str);
-char print_char(char c);
+int print_char(char c);
 
 #endif
