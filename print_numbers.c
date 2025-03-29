@@ -26,7 +26,7 @@ int print_number(va_list args)
         if (num / 10)
         {
                 /* Recurse with va_list */
-                count += print_number_helper(num / 10);
+                count += print_number(num / 10);
         }
 
         /* Print the last digit */
