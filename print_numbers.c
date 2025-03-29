@@ -10,6 +10,8 @@ void print_number(va_list args, int *count)
 {
         unsigned int num; /* Store absolute value */
         int n = va_arg(args, int); /* Extract signed integer */
+	char buffer[20];
+	int i = 0;
 
         /* Handle negative numbers */
         if (n < 0)
@@ -24,8 +26,6 @@ void print_number(va_list args, int *count)
         }
         
 	/* Convert number to string in reverse */
-	char buffer[20];
-	int i = 0;
 
 	do 
 	{
