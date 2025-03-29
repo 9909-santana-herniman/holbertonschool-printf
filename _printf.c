@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
  * _printf - small version of printf
@@ -13,8 +12,7 @@
 int _printf(const char *format, ...)
 {
 	int len = 0; /* Keep track of printed characters */
-	va_list args; /* List of arguments */
-	int i = 0;	
+	va_list args; /* List of arguments */	
 
 	if (!format) /* Check for NULL format string */
 	{
@@ -24,24 +22,41 @@ int _printf(const char *format, ...)
 	va_start(args, format); /* Start processing arguments */
 	
 	/* Loop through each character in the format string */
-	while (format[i])
+	while (*format)
 	{
 		/* If format specifier found */
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			if (format[i + 1] == '\0')
+			format++; /* Move past '%' */
+		
+			switch (*format)
 			{
-				return (-1);
+			case 'c':
+				print_char(args, &count);
+				break;
+			case 's':
+				print_string(args, &count);
+				break;
+			case 'd':
+			case 'i':
+				print_number(args, &count);
+				break;
+			case '%':
+				print_percent(&count);
+				break;
+			default:
+				putchar('%');
+				putchar(*format);
+				count += 2;
 			}
-			len += format_spec(format[i++], args);
 		}
 		else
 		{
-			len += _putchar(format[i], args);
+			putchar(*format);
+			count++;
+			format++;
 		}
-	i++;
 	}
-
 	va_end(args);
 	return (len);
 }
