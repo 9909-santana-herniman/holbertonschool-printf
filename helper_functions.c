@@ -5,34 +5,48 @@
  * @args: List of arguments.
  * Return: Number of characters printed.
  */
-
+int print_number_helper(unsigned int num);
 int print_number(va_list args)
 {
 	int count = 0;
-	/* Extract number from the va_list */
-	unsigned int num = va_arg(args, unsigned int);
-
+	unsigned int num; /* Store absolute value */
+	int n = va_arg(args, int); /* Extract signed integer */
+	
 	/* Handle negative numbers */
-	if (num < 0)
+	if (n < 0)
 	{
 		count += _putchar('-');
-		num = -n;
+		num = -n; /* Convert to positive */
 	}
 	else
 	{
-		num = n;
+		num = n; /* Use original number */
 	}
-	/* Recursively process the digits  */
+	/* Recursively print numbers (except last one) */
 	if (num / 10)
 	{
 		/* Recurse with va_list */
-		count += print_number(args);
+		count += print_number_helper(num / 10);
 	}
 
 	/* Print the last digit */
-	_putchar((num % 10) + '0');
-	count++; /* Increment count */
+	count += _putchar((num % 10) + '0');
 
+	return (count);
+}
+/**
+* print_number_helper - helper for recursion
+* @num: number to print.
+* Return: Number of characters printed.
+*/
+int print_number_helper(unsigned int num)
+{
+	int count = 0;
+
+	if (num /10)
+		count += print_number_helper(num / 10);
+
+	count += _putchar((num % 10) + '0');
 	return (count);
 }
 
