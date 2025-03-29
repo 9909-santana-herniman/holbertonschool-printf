@@ -2,21 +2,19 @@
 
 /**
  * print_string - Prints a string to stdout
- * @str: String to print.
- * Return: The character count
+ * @args: Variable arguments list.
+ * @count: Pointer to character counter.
  */
 
-int print_string(char *str)
+void print_string(va_list args, int *count)
 {
-	int count = 0;
+	char *str = va_arg(args, char *);
 
-	if (!str)
-	{
-		str = "(null)";
-	}
+	if (!str) str = "(null)";
+
 	while (*str)
 	{
-		count += _putchar(*str++);
+		putchar(*str++);
+		(*count)++;
 	}
-	return (count);
 }

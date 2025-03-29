@@ -3,11 +3,12 @@
 /**
  * print_char - Prints a single character.
  * @args: List of arguments.
- * Return: 1 since char is printed.
+ * @count: Pointer to character counter.
  */
 
-int print_char(va_list args)
+void print_char(va_list args, int *count)
 {
-	char c = va_arg(args, int);
-	return (_putchar(c));
+	char c = va_arg(args, int); /* Char promotes to int in variadics */
+	putchar(c);
+	(*count)++;
 }
