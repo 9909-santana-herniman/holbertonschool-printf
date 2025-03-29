@@ -11,7 +11,7 @@
 
 int _printf(const char *format, ...)
 {
-	int len = 0; /* Keep track of printed characters */
+	int count = 0; /* Keep track of printed characters */
 	va_list args; /* List of arguments */	
 
 	if (!format) /* Check for NULL format string */
@@ -58,5 +58,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	return (len);
+	return (count);
 }
