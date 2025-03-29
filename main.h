@@ -6,14 +6,13 @@
 #include <unistd.h> /* for write function */
 #include <stdlib.h>
 
-/* Functions prototypes */
+/* Main printf function */
 int _printf(const char *format, ...); /* substitue printf function */
 
-int print_number(int n);
-int print_string(char *str);
-
-int format_spec(char format, va_list args);
-
-int _putchar(char c);
+/* Helper functions */
+void print_number(va_list args, int *count);
+void print_string(va_list args, int *count);
+void print_number(va_list args, int *count);
+void print_percent(int *count);
 
 #endif
