@@ -15,7 +15,7 @@ int print_number(va_list args)
 	/* Handle negative numbers */
 	if (n < 0)
 	{
-		count += putchar('-');
+		count += _putchar('-');
 		num = -n;
 	}
 	else
@@ -25,7 +25,7 @@ int print_number(va_list args)
 	/* Recursively process the digits  */
 	if (num / 10)
 	{
-		count += print_number(n / 10);
+		count += print_number(num / 10);
 	}
 
 	/* Print the last digit */
