@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 			else /* Handle invalid specifiers */
 			{
 				len += putchar('%');
-				len += _utchar(*format);
+				len += putchar(*format);
 			}
 		}
 		else /* Print normal characters */
