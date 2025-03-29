@@ -5,11 +5,27 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stddef.h>
 
-/* Functions to go here */
+/* Functions prototypes */
 int _printf(const char *format, ...);
-int print_number(int n);
-int print_string(char *str);
-int _print_char(char c);
+int format_specifiers(const char *format, va_list args);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(va_list args);
+int print_number(va_list args);
+int _putchar(char c);
+
+/**
+ * struct specifier - Struct to link format specifiers to functions.
+ * @specifier - The format specifier.
+ * @f: The corresponding function pointer.
+ */
+
+typedef struct specifier
+{
+	char specifier;
+	int (*f)(va_list);
+} specifier_link;
 
 #endif
