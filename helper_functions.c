@@ -3,86 +3,71 @@
 /**
  * print_number - Prints an integer recursively
  * @num: The integer to print
+ * Return: Number of characters printed.
  */
 
-void print_number(int num)
+int  print_number(int n)
 {
-	char digit;
-	unsigned int n;
+	int count = 0;
+	unsigned int num; /* Holds the absolute value of num */
 
 	/* Handle negative numbers */
 	if (num < 0)
 	{
-		putchar('-');
-		n = -num;
+		count += _putchar('-');
+		num = -n;
 	}
-
-	/* Recursively print_number for all digits ex for last one */
+	else
+	{
+		num = n;
+	}
+	/* Recursively process the digits  */
 	if (num / 10)
 	{
-		print_number(n / 10);
+		count += print_number(n / 10);
 	}
 
 	/* Print the last digit */
-	putchar((num % 10) + '0');
+	count =+ _putchar((num % 10) + '0');
+
+	return (count);
 }
 
 /**
- * print_string - prints string from list
- * @args: input arguments
- * Return: number of characters printed
+ * print_string - Prints string character by character.
+ * @str: The input string to print.
+ * Return: Number of characters printed
  */
 
-int print_string(va_list args)
+int print_string(char *str)
 
 {
-	int j;
-	char *string = va_arg(args, char *);
-	/* initializing string arg in list of args */
-	if (!string)
+	int count = 0;
+
+	/* If the string is NULL, print "(null)" */
+	if (!str)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		str = "(null)";
 	}
 
-	for (j = 0; string[j] != '\0'; j++)
-	/* now moving along the characters in string */
-
+	whlie (*str) /* Iterate through each character in the string */
 	{
-		putchar(string[j]);
-		/* printing each character */
-
+		count += _putchar(*str); /* Print character */
+		str++; /* Move to next character */
 	}
-
-	return (j);
+	return (count);
 }
 
 /**
- * print_char - prints character from the list
- * of args
- * @args: input arguments
- * @length: the amount of characters printed
- * Return: length
+ * print_char - print single character.
+ * @c: Character to print.
+ * Return: 1 since char is printed.
  */
 
-int print_char(va_list args)
+int print_char(c)
 
 {
-	putchar(va_arg(args, int));
-
-	return (1);
+	/* Uses _putchar to print */
+	return _putchar(c);
 
 }
-
-/**
- * print_perc - prints "%"
- * @args: arguments
- * Return: char "%"
- */
-
-int print_perc(va_list args)
-{
-	(void)args;
-	return (write(1, "%", 1));
-}
-
