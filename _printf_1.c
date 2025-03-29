@@ -37,21 +37,21 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
-				len += print_number(va_args(args, int));
+				len += print_number(va_arg(args, int));
 			}
 			else if (*format == '%')
 			{
-				len =+ _putchar('%');
+				len =+ putchar('%');
 			}
 			else /* Handle invalid specifiers */
 			{
-				len += _putchar('%');
-				len += _putchar(*format);
+				len += putchar('%');
+				len += _utchar(*format);
 			}
 		}
 		else /* Print normal characters */
 		{
-			len += _putchar(*format);
+			len += putchar(*format);
 		}
 		
 		format++; /* Move to next character */
