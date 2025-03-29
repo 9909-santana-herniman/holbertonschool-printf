@@ -13,7 +13,7 @@ int print_number(va_list args)
 	unsigned int num = va_arg(args, unsigned int);
 
 	/* Handle negative numbers */
-	if (n < 0)
+	if (num < 0)
 	{
 		count += _putchar('-');
 		num = -n;
