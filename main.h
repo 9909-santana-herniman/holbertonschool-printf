@@ -24,7 +24,7 @@ int _putchar(char c);
 
 typedef struct specifier
 {
-	char specifier;
+	char form_spec;
 	int (*f)(va_list);
 }specifier_link;
 
