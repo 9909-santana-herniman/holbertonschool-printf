@@ -3,34 +3,40 @@
 /**
  * print_number - Prints an integer
  * @args: List of arguments.
- * Return: Number of characters printed.
+ * @count: Pointer to character count.
  */
 
-int print_number(va_list args)
+void print_number(va_list args, int *count)
 {
-        int count = 0;
         unsigned int num; /* Store absolute value */
         int n = va_arg(args, int); /* Extract signed integer */
 
         /* Handle negative numbers */
         if (n < 0)
         {
-                count += _putchar('-');
+                putchar('-');
+		(*count)++;
                 num = -n; /* Convert to positive */
         }
         else
         {
                 num = n; /* Use original number */
         }
-        /* Recursively print numbers (except last one) */
-        if (num / 10)
-        {
-                /* Recurse with va_list */
-                count += print_number(num / 10);
-        }
+        
+	/* Convert number to string in reverse */
+	char buffer[20];
+	int i = 0;
 
-        /* Print the last digit */
-        count += _putchar((num % 10) + '0');
+	do 
+	{
+		buffer[i++] = (num %10) + '0';
+		num /= 10;
+	} while (num > 0);
 
-        return (count);
+	/* Print digits in correct order */
+	while (i > 0)
+	{
+		putchar(buffer[i--]);
+		(*count)++;
+	}
 }
